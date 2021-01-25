@@ -2,3 +2,5 @@
 2D Spaceship Game Made in Unity
 
 # My First Unity 2D Game 
+
+Code is located in the Master Branch.
