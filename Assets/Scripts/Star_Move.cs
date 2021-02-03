@@ -9,6 +9,7 @@ public class Star_Move : MonoBehaviour
     public float StarSpeed;
     GameObject StarObj;
     private Rigidbody2D rb2dMove;
+    public bool RBorNot;
 
     void Start()
     {

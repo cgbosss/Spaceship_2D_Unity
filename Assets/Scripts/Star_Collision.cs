@@ -5,6 +5,9 @@ using UnityEngine;
 public class Star_Collision : MonoBehaviour
 {
 
+    public Transform ParticlePosition;
+    public GameObject ParticleWinObject;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,7 +27,10 @@ public class Star_Collision : MonoBehaviour
         {
             Debug.Log("Make Star Disapear, Update the Score");
             Destroy(gameObject, 1.0f); // This gives a delay to the 
-            
+            GameObject CloneParticle = Instantiate(ParticleWinObject, ParticlePosition.position, ParticlePosition.rotation);
+
+            Destroy(CloneParticle, 3f);// Delete the particles after displaying
+
             //Disappear();
             //PlayParticle Animation to Win()
             //col2d.gameObject.SendMessage("ApplyDamage", 10);
