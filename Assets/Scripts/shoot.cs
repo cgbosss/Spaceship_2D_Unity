@@ -14,7 +14,6 @@ public class shoot : MonoBehaviour
     {
         laserSound = GetComponent<AudioSource>();
 
-
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class shoot : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Instantiate(laserSprite, firePoint.position, firePoint.rotation);
-            laserSound.Play();
+            laserSound.PlayDelayed(0.03f); // play Sound
         }
 
         //playSound();

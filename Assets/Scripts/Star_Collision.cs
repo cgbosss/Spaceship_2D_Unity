@@ -1,17 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Star_Collision : MonoBehaviour
 {
 
     public Transform ParticlePosition;
     public GameObject ParticleWinObject;
+    private GameObject scoreCountUI;
+    private score_update scoreUpdateScript;
+    private AudioSource StarWinSound;
 
-    // Update is called once per frame
-    void Update()
-    {
+	void Start()
+	{
         
+        //Set the Game Object to Var
+        scoreCountUI = GameObject.Find("scoreCount");
+        Debug.Log("Found Score Count: " + scoreCountUI);
+        //Need to get Componenet of the other GameObject Script before accessing the Function
+        scoreUpdateScript = scoreCountUI.GetComponent<score_update>();
+        Debug.Log("Found Component Script: " + scoreUpdateScript);
+
+        StarWinSound = GetComponent<AudioSource>();
+        
+	}
+
+	// Update is called once per frame
+	void Update()
+    {
+       
     }
 
     //Star overlap with Player
@@ -22,33 +40,45 @@ public class Star_Collision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col2d)
     {
-        Debug.Log("We are colliding" + col2d.gameObject.name);
+        Debug.Log("Star is colliding" + col2d.gameObject.name);
         if (col2d.gameObject.tag == "Player")
         {
             Debug.Log("Make Star Disapear, Update the Score");
-            Destroy(gameObject, 1.0f); // This gives a delay to the 
-            GameObject CloneParticle = Instantiate(ParticleWinObject, ParticlePosition.position, ParticlePosition.rotation);
+            Destroy(gameObject, 1.0f); // This gives a delay to the object being removed
 
+            GameObject CloneParticle = Instantiate(ParticleWinObject, ParticlePosition.position, ParticlePosition.rotation);
             Destroy(CloneParticle, 3f);// Delete the particles after displaying
+
+
+            StarWinSound.PlayDelayed(0.01f);
+            scoreUpdateScript.UpdateScore();
 
             //Disappear();
             //PlayParticle Animation to Win()
-            //col2d.gameObject.SendMessage("ApplyDamage", 10);
-        }
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject);
+            //col2d.gameObject.SendMessage("ApplyDamage", 10
 
-        if (collision.gameObject.name == "UFO_Player")
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Star Collied Do something here");
         }
-        if (collision.gameObject.name == "bg")
+        else if (col2d.gameObject.name == "Left_End_Boundry") 
         {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Star Collied with BG Do something here");
+            Debug.Log("Star Hit the Bounds");
+        }
+
+
+    }
+
+    void OnCollisionExit2D(Collision2D col2d)
+	{
+        scoreUpdateScript.UpdateScore();
+
+        if(col2d.gameObject.tag == "ScreenBound") 
+        {
+            Debug.Log("Remove Star from Scene");
+        }
+        else if (col2d.gameObject.CompareTag("ScreenBound"))
+        {
+            Debug.Log("Remove Collided Object from Scene");
+            Destroy(gameObject, 1.0f);
         }
     }
+
 }

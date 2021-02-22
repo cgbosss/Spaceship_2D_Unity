@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour
+public class menuMusic : MonoBehaviour
 {
-    public int rockLife = 20;
+    AudioSource menuMusicSource;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -16,13 +17,4 @@ public class Rock : MonoBehaviour
     {
         
     }
-
-    //This function is to reduce the Rock life and delete it
-    public void reduceRockLife()
-	{
-        if(rockLife == 0)
-		{
-            Destroy(gameObject);
-		}
-	}
 }
