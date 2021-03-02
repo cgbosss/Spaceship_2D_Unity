@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //This script controls the buttons inputs of the game menus
-public class LoadScene : MonoBehaviour
+public class ButtonScripts : MonoBehaviour
 {
     public Button PlayButton;
     public Button ReturnMenuButton;
     public Button QuitButton;
 
+    private GameObject GameManagerObj;
+    private GameManager GameManagerScript;
+
     //Use of enum to store various scenes
     public enum scene
 	{
+        Boot,
         Start,
         Game_Scene,
 	}
@@ -26,18 +30,14 @@ public class LoadScene : MonoBehaviour
         PlayButton.onClick.AddListener(PlayBtnOnClick);
         ReturnMenuButton.onClick.AddListener(ReturnMenuFunc);
         QuitButton.onClick.AddListener(quitGame);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        //Setup Communication with the Game Manager
+        GameManagerObj = GameObject.Find("GameManager");
+        GameManagerScript = GameManagerObj.GetComponent<GameManager>();
+        Debug.Log("Button Script Found Game Manager " + GameManagerObj.name);
         
     }
 
-    public void sceneChange ()
-	{
-        Debug.Log("Scene Change!");
-    }
 
     void quitGame()
 	{
@@ -49,17 +49,21 @@ public class LoadScene : MonoBehaviour
     //Code to load the Game from PlayButton
     void PlayBtnOnClick()
     {
-        SceneLoaderSingle(scene.Game_Scene);
-        Debug.Log("You have clicked the button!" + scene.Game_Scene);
+        Debug.Log("Play BTN Clicked");
+        scene ActiveScene = SceneManager.GetActiveScene();
+        Debug.Log("Play BTN Scene" + ActiveScene);
+        //GameManagerScript.unloadLevel("Start");
+        //GameManagerScript.loadLevel("Game_Scene");
     }
 
     public void ReturnMenuFunc()
 	{
         Debug.Log("You have clicked the button to Return Menu!");
+        GameManagerScript.loadLevel("Game_Scene");
         SceneLoaderSingle(scene.Start);
     }
     //This Function loads a single Scene 
-    public void SceneLoaderSingle (scene sceneName)
+    public void SceneLoaderSingle(scene sceneName)
 	{
         SceneManager.LoadScene(sceneName.ToString(), LoadSceneMode.Single);
 	}

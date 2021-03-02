@@ -51,6 +51,7 @@ public class Star_Collision : MonoBehaviour
 
 
             StarWinSound.PlayDelayed(0.01f);
+            //This will updated the Score based on the Score Update Fuction in another script
             scoreUpdateScript.UpdateScore();
 
             //Disappear();
