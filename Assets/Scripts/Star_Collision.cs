@@ -17,7 +17,12 @@ public class Star_Collision : MonoBehaviour
         
         //Set the Game Object to Var
         scoreCountUI = GameObject.Find("scoreCount");
-        Debug.Log("Found Score Count: " + scoreCountUI);
+
+        if (scoreCountUI)
+		{
+            Debug.Log("Found Score Count: " + scoreCountUI);
+        }
+        
         //Need to get Componenet of the other GameObject Script before accessing the Function
         scoreUpdateScript = scoreCountUI.GetComponent<score_update>();
         Debug.Log("Found Component Script: " + scoreUpdateScript);

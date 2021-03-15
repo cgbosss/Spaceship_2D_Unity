@@ -14,6 +14,9 @@ public class Spawner : MonoBehaviour
     //Make sure screen does not have too many Instances Spawns Max 10
     //Spawner will not end until the game quits or player loses all life
 
+    public Transform SpwnPointOne;
+    public Transform SpwnPointTwo;
+
     // Start is called before the first frame update
     void Start()
     {

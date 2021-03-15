@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 1016630587638830227}
   - component: {fileID: 8497241696764459110}
   m_Layer: 0
-  m_Name: GameUI
+  m_Name: Game_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,8 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217bc883bac1f3d48bb8dd04ac0932dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuType: {fileID: 6328120909491359949}
-  UI_Canvas: {fileID: 0}
+  Start_UI: {fileID: 8725239095635536703}
+  Game_UI: {fileID: 5270624728452727151}
+  Pause_Menu_UI: {fileID: 6328120909491359949}
 --- !u!114 &8396233918922139711
 MonoBehaviour:
   m_ObjectHideFlags: 0

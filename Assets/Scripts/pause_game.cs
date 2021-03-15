@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class pause_game : MonoBehaviour
 {
-    public GameObject MenuType;
-    public GameObject UI_Canvas;
+    public GameObject Start_UI;
+    public GameObject Game_UI;
+    public GameObject Pause_Menu_UI;
     bool showPauseMenu = false;
 
-    /// <summary>
-    /// This code is for the pause menu in game
-    /// </summary>
-    /// 
+	/// <summary>
+	/// This code is for the pause menu in game
+	/// It controls the UI for the game.
+	/// </summary>
+	/// 
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
-        MenuType.SetActive(false);
-        UI_Canvas.SetActive(false);
+        Start_UI.SetActive(true);
+        Game_UI.SetActive(true);
+        Pause_Menu_UI.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+
+	// Update is called once per frame
+	void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -34,24 +38,32 @@ public class pause_game : MonoBehaviour
             Debug.Log("Esc Key to Resume Game");
 
         }
+
     }
 
     void PauseGame()
     {
         Time.timeScale = 1;
-        MenuType.SetActive(true);
-        UI_Canvas.SetActive(true);
     }
 
     void ResumeGame()
     {
         Time.timeScale = 1;
-        MenuType.SetActive(false);
     }
 
     //Send the Game back to the Main Menu
     public void ResumeGameBtn ()
 	{
-        MenuType.SetActive(false);
+       
 	}
+
+    public void GameUI_Show ()
+	{
+        Game_UI.SetActive(true);
+    }
+
+    public void StartUI_Show ()
+	{
+        Start_UI.SetActive(true);
+    }
 }

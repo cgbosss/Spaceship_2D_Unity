@@ -50,17 +50,16 @@ public class ButtonScripts : MonoBehaviour
     void PlayBtnOnClick()
     {
         Debug.Log("Play BTN Clicked");
-        scene ActiveScene = SceneManager.GetActiveScene();
-        Debug.Log("Play BTN Scene" + ActiveScene);
-        //GameManagerScript.unloadLevel("Start");
-        //GameManagerScript.loadLevel("Game_Scene");
+        GameManagerScript.unloadLevel("Start");
+        GameManagerScript.loadLevel("Game_Scene");
     }
 
     public void ReturnMenuFunc()
 	{
         Debug.Log("You have clicked the button to Return Menu!");
-        GameManagerScript.loadLevel("Game_Scene");
-        SceneLoaderSingle(scene.Start);
+        GameManagerScript.unloadLevel("Game_Scene");
+        GameManagerScript.loadLevel("Start");
+
     }
     //This Function loads a single Scene 
     public void SceneLoaderSingle(scene sceneName)

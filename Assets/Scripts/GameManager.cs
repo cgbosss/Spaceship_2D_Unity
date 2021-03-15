@@ -10,13 +10,17 @@ public class GameManager : MonoBehaviour
     //Load Game Levels and Unload Levels
     //Check game is not over (Player Life 0) if over give the option to restart
     //End the Game and unload all Level (Quit
-    public enum scene
+    /*public enum scene
     {
         Start,
         Game_Scene,
-    }
+        End_Scene
+    }*/
 
-
+    bool ActiveSceneSet;
+    public Scene ActiveScene;
+    private GameObject UICanvas;
+    private pause_game PauseGameScript;
 
     //To Track the current Scene
     private string currentLevelName = string.Empty;
@@ -24,18 +28,20 @@ public class GameManager : MonoBehaviour
     //Use List to track the number of Async Operations cause don't know how many there are
     List<AsyncOperation> LoadOperations;
 
+    // Create a temporary reference to the current scene.
+    public Scene currentScene;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Create a temporary reference to the current scene.
-        Scene currentScene = SceneManager.GetActiveScene();
-
         //This will load the First Scene Main menu
         loadLevel("Start");
-        DontDestroyOnLoad(gameObject);
-
+        DontDestroyOnLoad(gameObject); //Do Not Destory the Game Manager
+        
         LoadOperations = new List<AsyncOperation>();
 
+        UICanvas = GameObject.Find("UI_Canvas");
+        //PauseGameScript = UICanvas.GetComponent<pause_game>();
     }
 
 
@@ -44,9 +50,15 @@ public class GameManager : MonoBehaviour
     public void loadLevel(string levelName)
 	{
         StartCoroutine(LoadYourAsyncScene(levelName));
+        Debug.Log("LoadAsync Active Scene Start: " + SceneManager.GetActiveScene().name);
 
-        Debug.Log("Load Level Function Called");
-        //Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
+        //Load the UI here based on LevelName
+        if(levelName == "Start")
+		{
+            Debug.Log(levelName + " LoadLevel the Start UI here");
+
+        }
+
     }
 
     IEnumerator LoadYourAsyncScene(string levelName)
@@ -70,7 +82,7 @@ public class GameManager : MonoBehaviour
         // Wait until the asynchronous scene fully loads
         while (!AsyncLoad.isDone)
         {
-            float progress = Mathf.Clamp01(AsyncLoad.progress / 0.9f);
+            float progress = Mathf.Clamp01(AsyncLoad.progress / 0.9f); //Convert 0.9 of Progress to 1
             Debug.Log(progress);
             yield return null;
         }
@@ -83,12 +95,53 @@ public class GameManager : MonoBehaviour
             LoadOperations.Remove(AsyncLoad);
             Debug.Log("LD OPS:-" + LoadOperations.Count);
             Debug.Log("Current Level: " + currentLevelName);
+
+            ActiveSceneSet = true;
+
+            if (ActiveSceneSet == true)
+			{
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentLevelName));
+
+                Debug.Log("ActiveScene Scene" + SceneManager.GetActiveScene().name);
+			}
+            else
+			{
+                ActiveSceneSet = false;
+			}
         }
 
     }
 
     public void unloadLevel(string levelName)
 	{
+        StartCoroutine(UnLoadYourAsyncScene(levelName));
+    }
+
+    IEnumerator UnLoadYourAsyncScene(string levelName)
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Unloading the Scene...");
+        AsyncOperation AsyncUnLoad = SceneManager.UnloadSceneAsync(levelName);
+
+        if (AsyncUnLoad == null)
+        {
+            Debug.LogError("GameManager unable to UnLoad Level AO is Null" + levelName);
+            yield return null;
+        }
+
+        //Reset the Variables for Active Scene and level Name
+        while (!AsyncUnLoad.isDone)
+        {
+            currentLevelName = string.Empty;
+            ActiveSceneSet = false;
+
+            yield return null;
+        }
+
+    }
+
+    public void unloadLevelao (string levelName)
+    {
         AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
         ao.completed += UnLoadOperationComplete;
 
@@ -100,16 +153,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator UnLoadYourAsyncScene(string levelName)
-    {
-        yield return new WaitForSeconds(2f);
-        Debug.Log("Unloading the Scene...");
-    }
 
-        //End Game?
-        public void EndGame()
+    //End Game?
+    public void EndGame()
     {
-
+        //This function runs when the Game has ended 
+        //Life is 0 for player
+        //Display the Final Score and Button to go back to Menu and Restart the Game
     }
 
     //This is to check if the loading is complete and clear any Async
@@ -129,13 +179,12 @@ public class GameManager : MonoBehaviour
     {
         if (LoadOperations.Contains(ao))
         {
-            //Dispatch Messages
-            //or do Scene Transistions
+            //Dispatch Messages or do Scene Transistions
             LoadOperations.Remove(ao);
             Debug.Log("Async Ops Removed ");
         }
 
-        Debug.Log("UnLoad Completed");
+        Debug.Log("GameManager UnLoad Completed");
     }
 
 

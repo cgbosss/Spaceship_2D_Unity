@@ -7,6 +7,7 @@ public class score_update : MonoBehaviour
 {
     public Text ScoreText;
     public int ScoreCount;
+
     
     // Start is called before the first frame update
     void Start()

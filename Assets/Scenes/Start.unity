@@ -724,6 +724,11 @@ PrefabInstance:
       propertyPath: UI_Canvas
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6328120907556585836, guid: 91ccfe45ee02d9f4a938472fab3a6f0c,
+        type: 3}
+      propertyPath: Pause_Menu
+      value: 
+      objectReference: {fileID: 1858519049}
     - target: {fileID: 6328120907556585837, guid: 91ccfe45ee02d9f4a938472fab3a6f0c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -831,6 +836,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ccfe45ee02d9f4a938472fab3a6f0c, type: 3}
+--- !u!1 &1858519049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6328120909491359949, guid: 91ccfe45ee02d9f4a938472fab3a6f0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1858519048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019670623
 GameObject:
   m_ObjectHideFlags: 0
