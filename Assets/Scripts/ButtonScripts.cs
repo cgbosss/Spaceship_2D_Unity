@@ -54,6 +54,7 @@ public class ButtonScripts : MonoBehaviour
         GameManagerScript.loadLevel("Game_Scene");
     }
 
+    //Return to the Main Menu
     public void ReturnMenuFunc()
 	{
         Debug.Log("You have clicked the button to Return Menu!");
@@ -61,6 +62,7 @@ public class ButtonScripts : MonoBehaviour
         GameManagerScript.loadLevel("Start");
 
     }
+
     //This Function loads a single Scene 
     public void SceneLoaderSingle(scene sceneName)
 	{

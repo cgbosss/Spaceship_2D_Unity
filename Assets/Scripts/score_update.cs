@@ -7,16 +7,17 @@ public class score_update : MonoBehaviour
 {
     public Text ScoreText;
     public int ScoreCount;
+    private GameObject GameManagerObj;
+    private GameManager GameManagerScript;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         //Set the Text Count to Zero
         ScoreText.GetComponent<Text>();
         ScoreCount = 0;
-        ScoreText.text = "Star Count: ";
-       
+        ScoreText.text = ScoreCount.ToString();
     }
 
     // Update is called once per frame
@@ -32,5 +33,9 @@ public class score_update : MonoBehaviour
         ScoreCount = (ScoreCount + 1);
         ScoreText.text = ScoreCount.ToString();
         Debug.Log("Function Update Score Called");
-	}
+
+        GameManagerObj = GameObject.Find("GameManager");
+        GameManagerScript = GameManagerObj.GetComponent<GameManager>();
+        GameManagerScript.FinalGameScore = (ScoreCount + 1);
+    }
 }

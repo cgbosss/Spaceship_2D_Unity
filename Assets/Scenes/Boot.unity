@@ -218,8 +218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveScene:
     m_Handle: 0
-  currentScene:
-    m_Handle: 0
+  FinalGameScore: 0
+  currentLevelName: 
 --- !u!4 &1110279565
 Transform:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073330307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
