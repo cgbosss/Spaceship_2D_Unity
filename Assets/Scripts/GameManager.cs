@@ -21,30 +21,33 @@ public class GameManager : MonoBehaviour
     public Scene ActiveScene;
     private GameObject UICanvas;
     private pause_game PauseGameScript;
+    public int FinalGameScore;
 
     //To Track the current Scene
-    private string currentLevelName = string.Empty;
+    public string currentLevelName = string.Empty;
 
     //Use List to track the number of Async Operations cause don't know how many there are
     List<AsyncOperation> LoadOperations;
 
-    // Create a temporary reference to the current scene.
-    public Scene currentScene;
+    //public Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
     {
+        FinalGameScore = 0;
         //This will load the First Scene Main menu
         loadLevel("Start");
         DontDestroyOnLoad(gameObject); //Do Not Destory the Game Manager
         
         LoadOperations = new List<AsyncOperation>();
 
-        UICanvas = GameObject.Find("UI_Canvas");
-        //PauseGameScript = UICanvas.GetComponent<pause_game>();
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        //Check the Game State
+    }
 
     //This Function is to load the level Coroutine
     public void loadLevel(string levelName)
@@ -53,11 +56,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("LoadAsync Active Scene Start: " + SceneManager.GetActiveScene().name);
 
         //Load the UI here based on LevelName
-        if(levelName == "Start")
+        /*if(levelName == "Start")
 		{
             Debug.Log(levelName + " LoadLevel the Start UI here");
-
-        }
+        }*/
 
     }
 
@@ -69,8 +71,6 @@ public class GameManager : MonoBehaviour
         //AsyncLoad.completed += OnLoadOperationComplete; //This will register the AsyncOps to the function
         currentLevelName = levelName;
         LoadOperations.Add(AsyncLoad);
-
-
 
         //Check if there is such a level in Async Ops Give Error message
         if (AsyncLoad == null)
@@ -98,12 +98,12 @@ public class GameManager : MonoBehaviour
 
             ActiveSceneSet = true;
 
+            //Set the Variable CurrentScene to the Active Scene
             if (ActiveSceneSet == true)
 			{
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentLevelName));
-
                 Debug.Log("ActiveScene Scene" + SceneManager.GetActiveScene().name);
-			}
+            }
             else
 			{
                 ActiveSceneSet = false;
