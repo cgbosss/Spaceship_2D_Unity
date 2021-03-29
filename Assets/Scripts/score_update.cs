@@ -34,8 +34,9 @@ public class score_update : MonoBehaviour
         ScoreText.text = ScoreCount.ToString();
         Debug.Log("Function Update Score Called");
 
-        GameManagerObj = GameObject.Find("GameManager");
+        /*GameManagerObj = GameObject.Find("GameManager");
         GameManagerScript = GameManagerObj.GetComponent<GameManager>();
-        GameManagerScript.FinalGameScore = (ScoreCount + 1);
+        GameManagerScript.FinalGameScore = (ScoreCount + 1);*/
+
     }
 }

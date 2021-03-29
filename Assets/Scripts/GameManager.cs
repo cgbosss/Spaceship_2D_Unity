@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             if (ActiveSceneSet == true)
 			{
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentLevelName));
-                Debug.Log("ActiveScene Scene" + SceneManager.GetActiveScene().name);
+                Debug.Log("ActiveScene Scene  " + SceneManager.GetActiveScene().name);
             }
             else
 			{

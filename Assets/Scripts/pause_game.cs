@@ -35,8 +35,19 @@ public class pause_game : MonoBehaviour
         Pause_Menu_UI.SetActive(true);
         */
         PauseUI_Hide();
-        GameManagerObj = GameObject.Find("GameManager");
-        GameManagerScript = GameManagerObj.GetComponent<GameManager>();
+
+        //Checker for GameManager
+        if (GameManagerObj == null)
+		{
+            GameManagerObj = GameObject.Find("GameManager");
+            GameManagerScript = GameManagerObj.GetComponent<GameManager>();
+		}
+        else
+		{
+            GameManagerObj = null;
+            GameManagerScript = null;
+            Debug.Log("Game Manager Missiong");
+        }
         
     }
 
@@ -48,7 +59,7 @@ public class pause_game : MonoBehaviour
         //Code to check for Escape Key Menus
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Escape key was pressed Show Menu and Set to True Pause Menu");
+            //Debug.Log("Escape key was pressed Show Menu and Set to True Pause Menu");
             if (showPauseMenu == false)
             {
                 PauseGame();
@@ -64,11 +75,6 @@ public class pause_game : MonoBehaviour
 
 
         }
-        /*else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            
-            
-        }*/
 
         //UI Display
         Debug.Log("Pause_Game Call Var:" + GameManagerScript.currentLevelName);

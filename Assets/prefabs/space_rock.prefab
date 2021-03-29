@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8128331079661473687}
   - component: {fileID: 8128331079661473680}
   - component: {fileID: 8128331079661473682}
-  - component: {fileID: 8128331079661473686}
-  - component: {fileID: 8128331079661473685}
+  - component: {fileID: 8496325938185286338}
   - component: {fileID: 8128331079661473681}
+  - component: {fileID: 8128331079661473685}
   - component: {fileID: 8128331079661473684}
   m_Layer: 0
   m_Name: space_rock
@@ -102,7 +102,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &8128331079661473686
+--- !u!114 &8496325938185286338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128331079661473683}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf5eec4a3fa31844b077c9e53e7daf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8128331079661473681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,11 +123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8128331079661473683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75408ac61c0e7f409c2035d0a448c65, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d550415738cea64389288b44a8488cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarSpeed: -0.2
-  RBorNot: 0
+  rockLife: 20
+  rockSpeed: 0
 --- !u!58 &8128331079661473685
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,19 +144,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.82
---- !u!114 &8128331079661473681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8128331079661473683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d550415738cea64389288b44a8488cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockLife: 20
 --- !u!50 &8128331079661473684
 Rigidbody2D:
   serializedVersion: 4

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    public int rockLife = 20;
+    public int rockLife = 5;
+    public float rockSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,4 +27,10 @@ public class Rock : MonoBehaviour
             Destroy(gameObject);
 		}
 	}
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        Debug.Log("Rock triggered with " + hitInfo.name);
+        Destroy(hitInfo.gameObject, 1f);
+    }
 }

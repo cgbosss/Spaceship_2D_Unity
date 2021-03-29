@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner_Rock : MonoBehaviour
 {
     /// <summary>
     /// This is to spawn the Stars and Asteroids on screen
@@ -16,9 +16,7 @@ public class Spawner : MonoBehaviour
 
     public Transform SpwnPointOne;
     public Transform SpwnPointTwo;
-    public GameObject StarObj;
-    public GameObject StarObjSpecial;
-
+    public GameObject RockObj;
     public Vector3 NewStarVect;
     public int MaxStarCount;
 
@@ -30,7 +28,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         MaxStarCount = 0;
-        InvokeRepeating("spawnStar", 3f, spawnDelay);
+        InvokeRepeating("spawnRock", 5f, spawnDelay);
     }
 
     // Update is called once per frame
@@ -59,20 +57,16 @@ public class Spawner : MonoBehaviour
 
     }
 
-    IEnumerator startSpawningStars()
+    IEnumerator startSpawningRocks()
     {
         yield return new WaitForSeconds(spawnDelay);
 
     }
 
-    void spawnStar()
+    void spawnRock()
 	{
-        MaxStarCount += 1;
-        Instantiate(StarObj, SpwnPointOne.position, SpwnPointOne.rotation);
-        Debug.Log("MaxStarCount: " + MaxStarCount);
+        Instantiate(RockObj, SpwnPointOne.position, SpwnPointOne.rotation);
 	}
-
-
 
     //The star Count is updated once the object has been removed
     public void decreaseStarCount()

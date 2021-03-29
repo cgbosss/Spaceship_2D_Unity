@@ -21,6 +21,5 @@ public class BounderCollide : MonoBehaviour
     {
         Debug.Log("Border triggered with " + hitInfo.name);
         Destroy(hitInfo.gameObject, 1f);
-
     }
 }

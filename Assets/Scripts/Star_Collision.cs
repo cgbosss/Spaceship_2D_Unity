@@ -12,6 +12,8 @@ public class Star_Collision : MonoBehaviour
     private score_update scoreUpdateScript;
     private AudioSource StarWinSound;
 
+    public Spawner spawnerScript;
+
 	void Start()
 	{
         
