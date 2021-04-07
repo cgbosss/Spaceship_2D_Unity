@@ -21,6 +21,7 @@ public class Player_UFO : MonoBehaviour
         //Set the Initial Position
         //Move the Ship Up Down
         rb2d = GetComponent<Rigidbody2D> ();
+        Debug.Log("Player Health Start" + playerHealth);
 
 
     }
@@ -68,9 +69,10 @@ public class Player_UFO : MonoBehaviour
         }
     }
     
-    void checkScreenEdge()
+    void ReduceHealth()
 	{
-
+        playerHealth = -10;
+        Debug.Log("Player Health " + playerHealth);
 	}
 
 

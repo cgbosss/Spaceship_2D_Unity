@@ -7,6 +7,7 @@ public class pause_game : MonoBehaviour
     public GameObject Start_UI;
     public GameObject Game_UI;
     public GameObject Pause_Menu_UI;
+    public GameObject EndGameScores_UI;
 
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
@@ -34,6 +35,8 @@ public class pause_game : MonoBehaviour
         Game_UI.SetActive(false);
         Pause_Menu_UI.SetActive(true);
         */
+        EndGameScores_UI.SetActive(false);
+
         PauseUI_Hide();
 
         //Checker for GameManager

@@ -7,6 +7,7 @@ public class score_update : MonoBehaviour
 {
     public Text ScoreText;
     public int ScoreCount;
+    int AddScore = 1;
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
 
@@ -30,13 +31,22 @@ public class score_update : MonoBehaviour
     //Update the Score by 1
     public void UpdateScore ()
 	{
-        ScoreCount = (ScoreCount + 1);
+        ScoreCount = (ScoreCount + AddScore) ;
         ScoreText.text = ScoreCount.ToString();
-        Debug.Log("Function Update Score Called");
+        Debug.Log("Function Update Score Called: And Score is: " + ScoreCount);
+
+    }
+
+    public void SaveScore(int scoreFinal)
+	{
+        //Save the Final Score to a file
+        //Score overides the previous score
+
 
         /*GameManagerObj = GameObject.Find("GameManager");
         GameManagerScript = GameManagerObj.GetComponent<GameManager>();
         GameManagerScript.FinalGameScore = (ScoreCount + 1);*/
+
 
     }
 }

@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
         End_Scene
     }*/
 
+    public enum GameState
+	{
+        Start,
+        PlayingLevel,
+        Finished,
+	}
+
     bool ActiveSceneSet;
     public Scene ActiveScene;
     private GameObject UICanvas;
@@ -47,6 +54,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Check the Game State
+        CheckGameState();
     }
 
     //This Function is to load the level Coroutine
@@ -95,6 +103,17 @@ public class GameManager : MonoBehaviour
             LoadOperations.Remove(AsyncLoad);
             Debug.Log("LD OPS:-" + LoadOperations.Count);
             Debug.Log("Current Level: " + currentLevelName);
+
+
+            //Check for UI Canvas
+            UICanvas = GameObject.Find("UI_Canvas");
+            Debug.Log("Game Manager Object UICanvas " + UICanvas.name);
+            PauseGameScript = UICanvas.GetComponent<pause_game>();
+
+            /*if (UICanvas != null)
+            {
+                Debug.Log("GameManager Found UI Canvas" + UICanvas);
+            }*/
 
             ActiveSceneSet = true;
 
@@ -155,11 +174,12 @@ public class GameManager : MonoBehaviour
 
 
     //End Game?
-    public void EndGame()
+    public void CheckGameState()
     {
         //This function runs when the Game has ended 
         //Life is 0 for player
         //Display the Final Score and Button to go back to Menu and Restart the Game
+        Debug.Log("GameState is to" + currentLevelName + GameState.Start);
     }
 
     //This is to check if the loading is complete and clear any Async

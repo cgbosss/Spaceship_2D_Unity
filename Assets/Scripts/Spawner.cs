@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         MaxStarCount = 0;
-        InvokeRepeating("spawnStar", 3f, spawnDelay);
+        InvokeRepeating("spawnStar", 3f, spawnDelay); //THis code runs the Spawner Ever 3 seconds
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
     {
         //StartCoroutine(startSpawningStars());
 
-        Debug.Log("Tracking The Count Stars" + MaxStarCount);
+        //Debug.Log("Tracking The Count Stars" + MaxStarCount);
 
         //Set the Max Number of Star
         /*if (MaxStarCount < 20)

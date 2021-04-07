@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BounderCollide : MonoBehaviour
 {
+
+/// <summary>
+/// This scripts check if the Objects are colliding with the Collision Trigger and removes them.
+/// </summary>
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,6 @@ public class BounderCollide : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Debug.Log("Border triggered with " + hitInfo.name);
-        Destroy(hitInfo.gameObject, 1f);
+        Destroy(hitInfo.gameObject, 0.05f);
     }
 }

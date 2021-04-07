@@ -76,7 +76,7 @@ public class Star_Collision : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col2d)
 	{
-        scoreUpdateScript.UpdateScore();
+        //scoreUpdateScript.UpdateScore();
 
         if(col2d.gameObject.tag == "ScreenBound") 
         {
