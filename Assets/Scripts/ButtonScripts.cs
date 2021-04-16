@@ -33,14 +33,22 @@ public class ButtonScripts : MonoBehaviour
 
         //Setup Communication with the Game Manager
         GameManagerObj = GameObject.Find("GameManager");
-        GameManagerScript = GameManagerObj.GetComponent<GameManager>();
-        Debug.Log("Button Script Found Game Manager " + GameManagerObj.name);
 
-        if (GameManagerObj == null)
-		{
-            Debug.Log("Game Manager not Found");
-		}
-        
+        if (GameManagerObj != null)
+        {
+            Debug.Log("Button Script Found Game Manager " + GameManagerObj.name);
+
+            GameManagerScript = GameManagerObj.GetComponent<GameManager>();
+
+        }
+        else
+        {
+            Debug.Log("GameManager Not Found");
+            GameManagerObj = null;
+            GameManagerScript = null;
+        }
+
+
     }
 
 

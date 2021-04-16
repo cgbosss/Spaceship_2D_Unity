@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Star overlap with Player
+//Star Collides with player 
+//Play the disapearing animation
+// Remove Object from Scene
+//Update the Score
+
+
 public class Star_Collision : MonoBehaviour
 {
 
@@ -20,14 +28,24 @@ public class Star_Collision : MonoBehaviour
         //Set the Game Object to Var
         scoreCountUI = GameObject.Find("scoreCount");
 
-        if (scoreCountUI)
+        //Checker for GameObject is not NULL
+        if (scoreCountUI != null)
 		{
             Debug.Log("Found Score Count: " + scoreCountUI);
+
+            //Need to get Componenet of the other GameObject Script before accessing the Function
+            scoreUpdateScript = scoreCountUI.GetComponent<score_update>();
+            Debug.Log("Found Component Script: " + scoreUpdateScript);
         }
+
+        else
+		{
+            scoreCountUI = null;
+            Debug.Log("No Score UI Found");
+		}
         
-        //Need to get Componenet of the other GameObject Script before accessing the Function
-        scoreUpdateScript = scoreCountUI.GetComponent<score_update>();
-        Debug.Log("Found Component Script: " + scoreUpdateScript);
+
+
 
         StarWinSound = GetComponent<AudioSource>();
         
@@ -39,11 +57,7 @@ public class Star_Collision : MonoBehaviour
        
     }
 
-    //Star overlap with Player
-    //Star Collides with player 
-    //Play the disapearing animation
-    // Remove Object from Scene
-    //Update the Score
+
 
     void OnCollisionEnter2D(Collision2D col2d)
     {
@@ -59,7 +73,10 @@ public class Star_Collision : MonoBehaviour
 
             StarWinSound.PlayDelayed(0.01f);
             //This will updated the Score based on the Score Update Fuction in another script
-            scoreUpdateScript.UpdateScore();
+            if (scoreUpdateScript != null)
+			{
+                scoreUpdateScript.UpdateScore();
+			}
 
             //Disappear();
             //PlayParticle Animation to Win()

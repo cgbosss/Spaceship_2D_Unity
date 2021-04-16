@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         while (!AsyncLoad.isDone)
         {
             float progress = Mathf.Clamp01(AsyncLoad.progress / 0.9f); //Convert 0.9 of Progress to 1
-            Debug.Log(progress);
+            Debug.Log("Progress" + progress);
             yield return null;
         }
 

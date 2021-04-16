@@ -6576,6 +6576,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 34735415126429961, guid: e827b46bc7787de4aa00122fb622be0a,
+        type: 3}
+      propertyPath: StarSpeed
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 34735415126429963, guid: e827b46bc7787de4aa00122fb622be0a,
         type: 3}
       propertyPath: m_RootOrder

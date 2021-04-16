@@ -30,28 +30,38 @@ public class pause_game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
+
         Start_UI.SetActive(false);
         Game_UI.SetActive(false);
-        Pause_Menu_UI.SetActive(true);
-        */
+        Pause_Menu_UI.SetActive(false);
         EndGameScores_UI.SetActive(false);
 
         PauseUI_Hide();
 
-        //Checker for GameManager
-        if (GameManagerObj == null)
-		{
-            GameManagerObj = GameObject.Find("GameManager");
+        //Setup Communication with the Game Manager
+        GameManagerObj = GameObject.Find("GameManager");
+
+        if (GameManagerObj != null)
+        {
+            Debug.Log("Button Script Found Game Manager " + GameManagerObj.name);
+            
             GameManagerScript = GameManagerObj.GetComponent<GameManager>();
-		}
+
+            //UI Display
+            //Debug.Log("Pause_Game Call Var:" + GameManagerScript.currentLevelName);
+            DisplayUIbyScene(GameManagerScript.currentLevelName);
+
+        }
         else
-		{
+        {
+            Debug.Log("GameManager Not Found");
             GameManagerObj = null;
             GameManagerScript = null;
-            Debug.Log("Game Manager Missiong");
         }
-        
+
+
+
     }
 
 
@@ -79,9 +89,7 @@ public class pause_game : MonoBehaviour
 
         }
 
-        //UI Display
-        Debug.Log("Pause_Game Call Var:" + GameManagerScript.currentLevelName);
-        DisplayUIbyScene(GameManagerScript.currentLevelName);
+
     }
 
     public void DisplayUIbyScene(string levelName)
