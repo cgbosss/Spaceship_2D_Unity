@@ -8,7 +8,10 @@ public class Rock : MonoBehaviour
     public float rockSpeed;
     private Rigidbody2D rb2d;
 
-    private GameObject ufoPlayer;
+    private GameObject ufoPlayerObj;
+    private Player_UFO PlayerUfoScript;
+    private Kill_Player KillPlayerScript;
+
     Rock_explode RockExplodeScript;
 
     public float RockDestoryDelay;
@@ -29,8 +32,8 @@ public class Rock : MonoBehaviour
         //Get the Rock RB
         rb2d = GetComponent<Rigidbody2D>();
         //Debug.Log("Rock Life Start" + rockLife);
-        ufoPlayer = GameObject.Find("UFO_Player");
-        Debug.Log("Ufo Player : " + ufoPlayer.name);
+        ufoPlayerObj = GameObject.Find("UFO_Player");
+        PlayerUfoScript = ufoPlayerObj.GetComponent<Player_UFO>();
         
         RockExplodeScript = gameObject.GetComponent<Rock_explode>();
 
@@ -93,8 +96,9 @@ public class Rock : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
 		{
-            Debug.Log("Hit the Player and Remove a Life");
-		}
+            Debug.Log("Hit the Player and Remove a Life Kill Player");
+
+        }
 	}
 
 

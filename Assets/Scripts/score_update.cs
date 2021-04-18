@@ -7,10 +7,10 @@ public class score_update : MonoBehaviour
 {
     public Text ScoreText;
     public int ScoreCount;
+
     int AddScore = 1;
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
-
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,8 @@ public class score_update : MonoBehaviour
         ScoreText.GetComponent<Text>();
         ScoreCount = 0;
         ScoreText.text = ScoreCount.ToString();
+
+
     }
 
     // Update is called once per frame
@@ -49,4 +51,6 @@ public class score_update : MonoBehaviour
 
 
     }
+
+
 }

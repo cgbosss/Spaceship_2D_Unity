@@ -13,8 +13,6 @@ public class Player_UFO : MonoBehaviour
     //private AnimationClip ufoAnim;
 
     
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -69,11 +67,6 @@ public class Player_UFO : MonoBehaviour
         }
     }
     
-    void ReduceHealth()
-	{
-        playerHealth = -10;
-        Debug.Log("Player Health " + playerHealth);
-	}
 
 
 }

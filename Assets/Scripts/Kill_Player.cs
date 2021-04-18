@@ -11,8 +11,8 @@ public class Kill_Player : MonoBehaviour
     /// 
 
 
-    public GameObject Player;
-    public Player_UFO playerUFOScript;
+    private GameObject Player;
+    private Player_UFO playerUFOScript;
     public int UFODamage = 10;
 
     // Start is called before the first frame update
@@ -20,7 +20,6 @@ public class Kill_Player : MonoBehaviour
     {
         Player = GameObject.Find("UFO_Player");
         playerUFOScript = Player.GetComponent<Player_UFO>();
-        playerUFOScript.playerHealth = -UFODamage;
     }
 
     // Update is called once per frame
