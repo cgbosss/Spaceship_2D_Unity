@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75408ac61c0e7f409c2035d0a448c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarSpeed: -0.2
-  RBorNot: 0
+  StarSpeed: 1.6
+  RBD2: 0
 --- !u!114 &34735415126429959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   ParticlePosition: {fileID: 34735415126429963}
   ParticleWinObject: {fileID: 6205047139694391054, guid: c428598ceb0196748943c5fa5ff70479,
     type: 3}
+  spawnerScript: {fileID: 0}
 --- !u!82 &7804452448143015095
 AudioSource:
   m_ObjectHideFlags: 0

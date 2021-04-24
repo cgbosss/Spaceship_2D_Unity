@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
 
     public Vector3 NewStarVect;
     public int MaxStarCount;
+    public int SpecialStarCount;
 
     private bool SpawnStar = false;
     public float spawnDelay;
@@ -61,7 +62,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator startSpawningStars()
     {
-        yield return new WaitForSeconds(spawnDelay);
+        yield return new WaitForSeconds(spawnDelay * Time.deltaTime);
 
     }
 
@@ -70,15 +71,27 @@ public class Spawner : MonoBehaviour
         MaxStarCount += 1;
         Instantiate(StarObj, SpwnPointOne.position, SpwnPointOne.rotation);
         Debug.Log("MaxStarCount: " + MaxStarCount);
+
+        //Spwan a shooting Star
+        if (MaxStarCount == 20)
+		{
+            resetStarCount();
+		}
 	}
+
+    void spawnSpecial() 
+    {
+        Instantiate(StarObjSpecial, SpwnPointTwo.position, SpwnPointTwo.rotation);
+        SpecialStarCount += 1;
+    }
 
 
 
     //The star Count is updated once the object has been removed
-    public void decreaseStarCount()
+    public void resetStarCount()
 	{
-        MaxStarCount =- 1;
-        Debug.Log("Decrease Star Count" + MaxStarCount);
+        MaxStarCount = 1;
+        Debug.Log("Reset Star Count" + MaxStarCount);
 	}
 
 }

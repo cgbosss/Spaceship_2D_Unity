@@ -15,7 +15,7 @@ public class Spawner_Rock : MonoBehaviour
     //Spawner will not end until the game quits or player loses all life
 
     public Transform SpwnPointOne;
-    public Transform SpwnPointTwo;
+    //public Transform SpwnPointTwo;
     public GameObject RockObj;
     public Vector3 NewStarVect;
     public int MaxStarCount;
@@ -68,11 +68,6 @@ public class Spawner_Rock : MonoBehaviour
         Instantiate(RockObj, SpwnPointOne.position, SpwnPointOne.rotation);
 	}
 
-    //The star Count is updated once the object has been removed
-    public void decreaseStarCount()
-	{
-        MaxStarCount =- 1;
-        Debug.Log("Decrease Star Count" + MaxStarCount);
-	}
+    //Reset the Rock Count
 
 }

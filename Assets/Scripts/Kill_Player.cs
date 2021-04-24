@@ -13,13 +13,19 @@ public class Kill_Player : MonoBehaviour
 
     private GameObject Player;
     private Player_UFO playerUFOScript;
-    public int UFODamage = 10;
+    public int UFODamageTaken = 10;
+    private int KillPlayerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("UFO_Player");
         playerUFOScript = Player.GetComponent<Player_UFO>();
+
+        //Get Player Health
+        KillPlayerHealth = playerUFOScript.playerHealth;
+        //Debug.Log("KillPlayer Check health " + PlayerHealth);
+
     }
 
     // Update is called once per frame
@@ -30,7 +36,6 @@ public class Kill_Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
 
         if (collision.gameObject.tag == "rock")
         {
@@ -38,6 +43,10 @@ public class Kill_Player : MonoBehaviour
             Debug.Log("UFO Has collided with " + collision.gameObject);
             reducePlayerLife();
         }
+        if (KillPlayerHealth == 0)
+		{
+            Debug.Log("Kill Player and End Game"); 
+		}
     }
 
     //
@@ -45,6 +54,8 @@ public class Kill_Player : MonoBehaviour
 	{
         //StartCoroutine( );
         Debug.Log("KillScript: Reduce Player Life");
+        KillPlayerHealth = (KillPlayerHealth - UFODamageTaken);
+        Debug.Log("New Current Health" + KillPlayerHealth);
     }
     //Coroutine Script to Kill the player Health after 0.5second
 

@@ -17,8 +17,8 @@ public class Rock : MonoBehaviour
     public float RockDestoryDelay;
 
     float GravityRandom;
-    float GravityMin = -0.1f;
-    float GravityMax = 0.05f;
+    public float GravityMin = -0.10f;
+    public float GravityMax = 0.50f;
 
     /// <summary>
     /// Rock Script to move the rock
@@ -43,11 +43,14 @@ public class Rock : MonoBehaviour
 
 
         //Set the Gravity to a Random Range to help the Rock Float Up or Down.
-        GravityRandom = Random.Range(-0.1f, 0.05f);
+        GravityRandom = Random.Range(GravityMin, GravityMax);
         Debug.Log("Rock Random Gravity: " + GravityRandom);
         rb2d.gravityScale = Mathf.Clamp(GravityRandom, -0.08f, 0.01f) ;
-        Debug.Log("Clamp" + rb2d.gravityScale.ToString());
+        //Debug.Log("Clamp" + rb2d.gravityScale.ToString());
 
+        //Get a Random Speed for Rock
+        rockSpeed = Random.Range(0.2f, 3f);
+        Debug.Log("Rock Speed: " + rockSpeed);
     }
 
     // Update is called once per frame

@@ -27,7 +27,9 @@ public class Star_Move : MonoBehaviour
     void Update()
     {
         //Move the Star in a Straight Line
-        transform.Translate((0.01f*StarSpeed), 0, 0);
+        //transform.Translate((-0.01f*StarSpeed), 0, 0);
+
+        gameObject.transform.position += new Vector3((StarSpeed * -1), 0, 0) * Time.deltaTime;
 
     }
 
