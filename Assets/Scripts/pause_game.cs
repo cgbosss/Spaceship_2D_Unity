@@ -9,6 +9,7 @@ public class pause_game : MonoBehaviour
     public GameObject Pause_Menu_UI;
     public GameObject EndGameScores_UI;
 
+
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
     
@@ -155,5 +156,14 @@ public class pause_game : MonoBehaviour
         Pause_Menu_UI.SetActive(false);
     }
 
+    public void EndGameMenu_Hide()
+	{
+        EndGameScores_UI.SetActive(false);
+    }
+
+    public void EndGameMenu_Show()
+    {
+        EndGameScores_UI.SetActive(true);
+    }
 
 }

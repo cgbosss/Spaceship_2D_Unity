@@ -100,6 +100,7 @@ public class Rock : MonoBehaviour
         if (collision.gameObject.tag == "Player")
 		{
             Debug.Log("Hit the Player and Remove a Life Kill Player");
+            Destroy(gameObject, 2f);//Remove the Rock after 1-2 Second
 
         }
 	}

@@ -10,6 +10,7 @@ public class ButtonScripts : MonoBehaviour
     public Button PlayButton;
     public Button ReturnMenuButton;
     public Button QuitButton;
+    public Button ReturnMenuBTN2; //End Game Return to Menu
 
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
@@ -30,6 +31,7 @@ public class ButtonScripts : MonoBehaviour
         PlayButton.onClick.AddListener(PlayBtnOnClick);
         ReturnMenuButton.onClick.AddListener(ReturnMenuFunc);
         QuitButton.onClick.AddListener(quitGame);
+        ReturnMenuBTN2.onClick.AddListener(EndGameReturnFunc);
 
         //Setup Communication with the Game Manager
         GameManagerObj = GameObject.Find("GameManager");
@@ -71,6 +73,14 @@ public class ButtonScripts : MonoBehaviour
     public void ReturnMenuFunc()
 	{
         Debug.Log("You have clicked the button to Return Menu!");
+        GameManagerScript.unloadLevel("Game_Scene");
+        GameManagerScript.loadLevel("Start");
+
+    }
+
+    public void EndGameReturnFunc()
+    {
+        Debug.Log("Game Ended: You have clicked the button to Return Menu!");
         GameManagerScript.unloadLevel("Game_Scene");
         GameManagerScript.loadLevel("Start");
 

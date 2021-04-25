@@ -16,6 +16,12 @@ public class Kill_Player : MonoBehaviour
     public int UFODamageTaken = 10;
     private int KillPlayerHealth;
 
+    public GameObject PlayerLife_text;
+    private score_playerLife PlayerUI;
+
+    public GameObject UI_Canvas;
+    private pause_game PauseGameScript_UI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,10 @@ public class Kill_Player : MonoBehaviour
         KillPlayerHealth = playerUFOScript.playerHealth;
         //Debug.Log("KillPlayer Check health " + PlayerHealth);
 
+        PlayerUI = PlayerLife_text.GetComponent<score_playerLife>();
+
+        //Get the UI Canvas
+        PauseGameScript_UI = UI_Canvas.GetComponent<pause_game>();
     }
 
     // Update is called once per frame
@@ -45,7 +55,9 @@ public class Kill_Player : MonoBehaviour
         }
         if (KillPlayerHealth == 0)
 		{
-            Debug.Log("Kill Player and End Game"); 
+            Debug.Log("Kill Player and End Game");
+            //Play Death Animation
+            PauseGameScript_UI.EndGameMenu_Show();
 		}
     }
 
@@ -56,6 +68,7 @@ public class Kill_Player : MonoBehaviour
         Debug.Log("KillScript: Reduce Player Life");
         KillPlayerHealth = (KillPlayerHealth - UFODamageTaken);
         Debug.Log("New Current Health" + KillPlayerHealth);
+        PlayerUI.UpdateLifeCount();
     }
     //Coroutine Script to Kill the player Health after 0.5second
 

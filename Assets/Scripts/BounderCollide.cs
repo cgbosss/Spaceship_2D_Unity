@@ -24,7 +24,7 @@ public class BounderCollide : MonoBehaviour
     //Remove the Objects that come into the trigger
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log("Border triggered with " + hitInfo.name);
+        Debug.Log("Rock Bounder triggered with " + hitInfo.name);
         Destroy(hitInfo.gameObject, 0.05f);
     }
 }
