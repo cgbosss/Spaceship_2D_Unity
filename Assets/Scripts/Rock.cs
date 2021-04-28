@@ -33,8 +33,16 @@ public class Rock : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         //Debug.Log("Rock Life Start" + rockLife);
         ufoPlayerObj = GameObject.Find("UFO_Player");
-        PlayerUfoScript = ufoPlayerObj.GetComponent<Player_UFO>();
-        
+
+        if(ufoPlayerObj != null)
+		{
+            PlayerUfoScript = ufoPlayerObj.GetComponent<Player_UFO>();
+		}
+		else
+		{
+            ufoPlayerObj = null;
+		}
+
         RockExplodeScript = gameObject.GetComponent<Rock_explode>();
 
         /*RockParticleExp.GetComponent<ParticleSystem>();

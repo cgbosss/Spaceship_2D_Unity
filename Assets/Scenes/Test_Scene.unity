@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFODamageTaken: 10
+  PlayerLife_text: {fileID: 0}
+  UI_Canvas: {fileID: 0}
 --- !u!1001 &636477591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,6 +674,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188404940395549520, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 188404940395549550, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
       propertyPath: m_Enabled
@@ -737,7 +744,55 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship_ROOT
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115553408226658424, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ab4b8e8616d97e45b78c5aa1faceab8,
+        type: 3}
+    - target: {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 2942e1611def69b42bcabadc9145b7c5, type: 2}
+    - target: {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 2942e1611def69b42bcabadc9145b7c5, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
+    - {fileID: 3115553408226658424, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
 --- !u!1001 &1727717622
 PrefabInstance:

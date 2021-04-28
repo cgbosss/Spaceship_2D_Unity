@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8119969461482930466}
   - component: {fileID: 6465279842940724517}
   - component: {fileID: 3760550922108289622}
-  - component: {fileID: 2552682020313148160}
+  - component: {fileID: 4862720447382839463}
   m_Layer: 5
   m_Name: StarCount2
   m_TagString: scoreCount
@@ -245,7 +245,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &2552682020313148160
+--- !u!114 &4862720447382839463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,11 +254,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2138605388781217044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e305d2638d5eb104ea871ff8515fd5c4, type: 3}
+  m_Script: {fileID: 11500000, guid: c1b399a1d0630ad43a1042b8a1b01162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 3760550922108289622}
-  ScoreCount: 0
 --- !u!1 &2338805870149004552
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +483,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 71.44654, y: -266}
-  m_SizeDelta: {x: 130.26001, y: 38.971725}
+  m_AnchoredPosition: {x: 67, y: -282}
+  m_SizeDelta: {x: 169.22247, y: 38.971725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4597096540757835598
 CanvasRenderer:
@@ -645,7 +643,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -771,8 +769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 71.44654, y: -108}
-  m_SizeDelta: {x: 130.26001, y: 38.971725}
+  m_AnchoredPosition: {x: 67.90001, y: -108}
+  m_SizeDelta: {x: 171.09872, y: 38.971725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4597096542789820410
 CanvasRenderer:
@@ -1270,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1278,10 +1276,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1289,7 +1287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Scores
+  m_Text: "Newsletter \nUpdates"
 --- !u!1 &5898656449484311240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,8 +2402,9 @@ GameObject:
   - component: {fileID: 8904672568052155627}
   - component: {fileID: 7992977476170677551}
   - component: {fileID: 1849728036232826715}
+  - component: {fileID: 7808263681797542369}
   m_Layer: 5
-  m_Name: Scores
+  m_Name: SignUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2428,8 +2427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 71.44654, y: -188}
-  m_SizeDelta: {x: 130.26001, y: 38.971725}
+  m_AnchoredPosition: {x: 67.90001, y: -197.2}
+  m_SizeDelta: {x: 171.4567, y: 50.776505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8904672568052155627
 CanvasRenderer:
@@ -2488,7 +2487,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0, b: 0.87002325, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2511,17 +2510,31 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: sceneChange
-        m_Mode: 1
+      - m_Target: {fileID: 7808263681797542369}
+        m_MethodName: OpenURL
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.getrevue.co/profile/weiqing_teh
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7808263681797542369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128096633377239646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10871088f414a14eab38dffbc9ad655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WebButton: {fileID: 1849728036232826715}
+  webURL: https://www.getrevue.co/profile/weiqing_teh
 --- !u!1 &7747050550548915852
 GameObject:
   m_ObjectHideFlags: 0

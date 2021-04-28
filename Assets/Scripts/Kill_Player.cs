@@ -6,7 +6,8 @@ using UnityEngine;
 public class Kill_Player : MonoBehaviour
 {
     /// <summary>
-    /// This Script Tracks the Player life and wheter to destory it
+    /// This Script Tracks the Player life and destory it
+    /// When Life is ZERO 0
     /// </summary>
     /// 
 
@@ -32,10 +33,20 @@ public class Kill_Player : MonoBehaviour
         KillPlayerHealth = playerUFOScript.playerHealth;
         //Debug.Log("KillPlayer Check health " + PlayerHealth);
 
-        PlayerUI = PlayerLife_text.GetComponent<score_playerLife>();
+        //Check for UI Canvas
+        if (UI_Canvas != null)
+		{
 
-        //Get the UI Canvas
-        PauseGameScript_UI = UI_Canvas.GetComponent<pause_game>();
+            PlayerUI = PlayerLife_text.GetComponent<score_playerLife>();
+
+            //Get the UI Canvas
+            PauseGameScript_UI = UI_Canvas.GetComponent<pause_game>();           
+        }
+        else
+		{
+            PlayerLife_text = null;
+            UI_Canvas = null;
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +69,7 @@ public class Kill_Player : MonoBehaviour
             Debug.Log("Kill Player and End Game");
             //Play Death Animation
             PauseGameScript_UI.EndGameMenu_Show();
+            Destroy(gameObject, 4f);
 		}
     }
 
