@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class score_playerLife : MonoBehaviour
 {
     public Text PlayerLifeText;
-    int PlayerHealth = 110;
+    public int PlayerHealth = 100;
     public int DamagePoint = 10;
     //Player_UFO PlayerScript;
     //Kill_Player KillScript;

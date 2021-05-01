@@ -320,7 +320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Version 1.16
+  m_Text: Version 1.17
 --- !u!222 &529397082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -427,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541271714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.08, y: -0.35, z: 0}
+  m_LocalPosition: {x: 9.01, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -523,6 +523,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896086304}
   m_CullTransparentMesh: 0
+--- !u!1 &971125662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1818819303702824477, guid: 91ccfe45ee02d9f4a938472fab3a6f0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1858519048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107176136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1143,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: LifeBar
+      value: 
+      objectReference: {fileID: 971125662}
     - target: {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
       propertyPath: UI_Canvas
