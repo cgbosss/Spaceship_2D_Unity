@@ -64,6 +64,7 @@ public class Kill_Player : MonoBehaviour
             PlayerLife_text = null;
             UI_Canvas = null;
             LifeBar = null;
+            PlayerUI = null;
         }
     }
 
@@ -102,8 +103,12 @@ public class Kill_Player : MonoBehaviour
         Debug.Log("KillScript: Reduce Player Life");
         KillPlayerHealth = (KillPlayerHealth - UFODamageTaken);
         Debug.Log("New Current Health" + KillPlayerHealth);
-        PlayerUI.UpdateLifeCount();
-        LifeBarScript.ReduceLifeBar();
+        
+        if(PlayerUI != null)
+		{
+            PlayerUI.UpdateLifeCount();
+            LifeBarScript.ReduceLifeBar();
+		}
     }
     //Coroutine Script to Kill the player Health after 0.5second
 

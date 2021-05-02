@@ -31,7 +31,5 @@ public class shoot : MonoBehaviour
             Instantiate(laserSprite, firePoint.position, firePoint.rotation);
             laserSound.PlayDelayed(0.03f); // play Sound
         }
-
-        //playSound();
     }
 }
