@@ -14,17 +14,26 @@ public class Kill_Player : MonoBehaviour
 
     private GameObject Player;
     private Player_UFO playerUFOScript;
+    private SpriteRenderer PlayerSprite;
+
     public int UFODamageTaken = 10;
     private int KillPlayerHealth;
 
     public GameObject PlayerLife_text;
     private score_playerLife PlayerUI;
 
-    public GameObject UI_Canvas;
+    [Tooltip("checked for Game UI")]
+    public GameObject GameUI;
     private pause_game PauseGameScript_UI;
 
     public GameObject LifeBar;
     private life_bar LifeBarScript;
+
+    private Transform PlayerExplodeTrans;
+    public GameObject PlayerExplodeObj;
+
+    public GameObject HitPlayer;
+    private AudioSource HitPlayerSound;
 
     // Start is called before the first frame update
     void Start()
@@ -32,40 +41,53 @@ public class Kill_Player : MonoBehaviour
         Player = GameObject.Find("UFO_Player");
         playerUFOScript = Player.GetComponent<Player_UFO>();
 
-        //Check for LifeBar
-        if (!LifeBar)
-		{
-            LifeBar = GameObject.Find("Life_Bar");
+        //Get Player Health
+        KillPlayerHealth = playerUFOScript.playerHealth;
+
+        //Debug.Log("KillPlayer Check health " + PlayerHealth);
+
+        LifeBar = GameObject.Find("Life_Bar");
+        //Check for LifeBar is not NULL
+        if (LifeBar!= null)
+        {
+            
             LifeBarScript = LifeBar.GetComponent<life_bar>();
         }
         else
-		{
+        {
             LifeBar = null;
             LifeBarScript = null;
-		}
+        }
 
-
-        //Get Player Health
-        KillPlayerHealth = playerUFOScript.playerHealth;
-        //Debug.Log("KillPlayer Check health " + PlayerHealth);
-
-        //Check for UI Canvas Null Checker
-        if (UI_Canvas != null)
+        GameUI = GameObject.Find("Game_UI");
+        
+        //Check for UI Canvas / Player Life UI Null Checker
+        if (GameUI != null)
 		{
+            PlayerLife_text = GameObject.Find("PlayerLifeScore");
             PlayerUI = PlayerLife_text.GetComponent<score_playerLife>();
 
             //Get the UI Canvas
-            PauseGameScript_UI = UI_Canvas.GetComponent<pause_game>();
-
-
+            PauseGameScript_UI = GameUI.GetComponent<pause_game>();
+            Debug.Log("Found the Player Life UI Canvas");
         }
         else
 		{
+            //Set the UI Canvas and Child Objects to NULL
             PlayerLife_text = null;
-            UI_Canvas = null;
+            GameUI = null;
             LifeBar = null;
             PlayerUI = null;
+            Debug.Log("Set UI Canvas to NULL");
         }
+        
+        if(GameUI == false)
+		{
+            Debug.Log("Kill Start GameUI  ActiveInHierarchy is False");
+		}
+
+        HitPlayerSound = HitPlayer.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -83,33 +105,68 @@ public class Kill_Player : MonoBehaviour
             Debug.Log("UFO Player Has collided with " + collision.gameObject);
             reducePlayerLife();
 
-            //Play Explosion Animation and Sound.
+            //Play Hit Explosion Animation and Sound.
+            HitPlayerSound.Play();
+
         }
         if (KillPlayerHealth == 0)
 		{
             Debug.Log("Kill Player and End Game");
-            //Play Death Animation
-            PauseGameScript_UI.EndGameMenu_Show();
-            Destroy(gameObject, 4f);
-		}
+
+            //Play Death Animation Sequence
+            PlayerFinalDeath();
+
+        }
     }
 
 
     public void reducePlayerLife()
 	{
         //This Function will Reduce the Player Life
-        //Update the Lifebar UIs;
+        
 
         Debug.Log("KillScript: Reduce Player Life");
         KillPlayerHealth = (KillPlayerHealth - UFODamageTaken);
         Debug.Log("New Current Health" + KillPlayerHealth);
-        
-        if(PlayerUI != null)
+
+        if(GameUI != false)
 		{
+            //Update the Lifebar UIs;
             PlayerUI.UpdateLifeCount();
             LifeBarScript.ReduceLifeBar();
+        }
+        else
+		{
+            Debug.Log("GameUI not Found Cannot Update LifeCount");
 		}
-    }
-    //Coroutine Script to Kill the player Health after 0.5second
+        
+        
 
+    }
+
+
+    public void PlayerFinalDeath()
+	{
+        //Get Transform of Player at current point and play Explosion Animation
+        Debug.Log("Player Kill Final Death Animation Sequence");
+        
+        PlayerExplodeTrans = Player.transform;
+        Instantiate(PlayerExplodeObj, PlayerExplodeTrans.position, PlayerExplodeTrans.rotation);
+
+        PlayerSprite = Player.GetComponent<SpriteRenderer>();
+        PlayerSprite.enabled = false;
+
+        //Destroy(gameObject, 4.5f);
+
+        //Send a Message to UI Canvas
+        //showEndGameUIFunction();
+
+    }
+
+ 
+
+    private void showEndGameUIFunction() 
+    {
+        PauseGameScript_UI.EndGameMenu_Show();
+    }
 }

@@ -320,7 +320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Version 1.17
+  m_Text: Version 1.21
 --- !u!222 &529397082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1156,12 +1156,12 @@ PrefabInstance:
     - target: {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
       propertyPath: UFODamageTaken
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
@@ -1173,7 +1173,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5051106377996424312, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
 --- !u!1 &1713065346
 GameObject:

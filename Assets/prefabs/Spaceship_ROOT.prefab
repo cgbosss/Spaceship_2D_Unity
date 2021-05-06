@@ -126,6 +126,9 @@ MonoBehaviour:
   PlayerLife_text: {fileID: 0}
   UI_Canvas: {fileID: 0}
   LifeBar: {fileID: 0}
+  PlayerExplodeObj: {fileID: 6646397971991462433, guid: ad545c0d0ce73ba43bdd9972d0bbcacb,
+    type: 3}
+  HitPlayer: {fileID: 6874019968638619181}
 --- !u!114 &188404940395549549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,10 +509,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5c2ee4bd90a87a144b87d11b5ec69557, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d49c1aaa3a5ea34ca12b161170e3194, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 2.26
   Loop: 0
   Mute: 0
   Spatialize: 0

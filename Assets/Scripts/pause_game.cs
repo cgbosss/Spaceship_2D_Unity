@@ -163,7 +163,22 @@ public class pause_game : MonoBehaviour
 
     public void EndGameMenu_Show()
     {
-        EndGameScores_UI.SetActive(true);
+        //EndGameScores_UI.SetActive(true);
+        //Start the Coroutine Here
+        StartCoroutine(ShowEndUI());
     }
 
+    //Coroutine with Delay to show the Final Death Screen
+    private IEnumerator ShowEndUI()
+    {
+
+        Debug.Log("Coroutine End UI SHow started:" + Time.time);
+
+        //showEndGameUIFunction();
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        Debug.Log("Coroutine End UI Run Next Time:" + Time.time);
+        EndGameScores_UI.SetActive(true);
+    }
 }
