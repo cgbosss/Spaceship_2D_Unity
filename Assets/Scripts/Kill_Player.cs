@@ -24,16 +24,21 @@ public class Kill_Player : MonoBehaviour
 
     [Tooltip("checked for Game UI")]
     public GameObject GameUI;
+    private GameObject PauseGameObj;
     private pause_game PauseGameScript_UI;
 
     public GameObject LifeBar;
     private life_bar LifeBarScript;
+    //UI Objects and Scripts END//
 
     private Transform PlayerExplodeTrans;
     public GameObject PlayerExplodeObj;
 
     public GameObject HitPlayer;
     private AudioSource HitPlayerSound;
+
+    public GameObject StarCountEndUIObj;
+    public game_endScore GameEndScoreScript;
 
     // Start is called before the first frame update
     void Start()
@@ -67,9 +72,6 @@ public class Kill_Player : MonoBehaviour
             PlayerLife_text = GameObject.Find("PlayerLifeScore");
             PlayerUI = PlayerLife_text.GetComponent<score_playerLife>();
 
-            //Get the UI Canvas
-            PauseGameScript_UI = GameUI.GetComponent<pause_game>();
-            Debug.Log("Found the Player Life UI Canvas");
         }
         else
 		{
@@ -78,6 +80,7 @@ public class Kill_Player : MonoBehaviour
             GameUI = null;
             LifeBar = null;
             PlayerUI = null;
+
             Debug.Log("Set UI Canvas to NULL");
         }
         
@@ -87,6 +90,29 @@ public class Kill_Player : MonoBehaviour
 		}
 
         HitPlayerSound = HitPlayer.GetComponent<AudioSource>();
+
+        //Look for Pause Game Script Obj
+        PauseGameObj = GameObject.Find("UI_Canvas");
+
+        if(PauseGameObj == true)
+		{
+            //Get the UI Canvas
+            PauseGameScript_UI = PauseGameObj.GetComponent<pause_game>();
+            Debug.Log("Found the Script to UI Canvas" + PauseGameScript_UI.name);
+
+		}
+        else
+		{
+            PauseGameObj = null;
+            PauseGameScript_UI = null;
+            Debug.Log("UI Canvas and Pause Script not Found");
+		}
+
+        StarCountEndUIObj = GameObject.Find("StarCountEnd");
+        if(StarCountEndUIObj != null)
+		{
+            GameEndScoreScript = StarCountEndUIObj.GetComponent<game_endScore>();
+		}
 
     }
 
@@ -101,7 +127,7 @@ public class Kill_Player : MonoBehaviour
 
         if (collision.gameObject.tag == "rock")
         {
-            //StartCoroutine(rockRemove());
+            //Reduce the Player Life when it collides with a tag Rock
             Debug.Log("UFO Player Has collided with " + collision.gameObject);
             reducePlayerLife();
 
@@ -156,17 +182,23 @@ public class Kill_Player : MonoBehaviour
         PlayerSprite = Player.GetComponent<SpriteRenderer>();
         PlayerSprite.enabled = false;
 
-        //Destroy(gameObject, 4.5f);
+        //Remove Explosion
+        //Destroy(PlayerExplodeObj, 4.5f);
 
         //Send a Message to UI Canvas
-        //showEndGameUIFunction();
+        showEndGameUIFunction();
 
     }
 
  
-
+    //This is for Showing the Final Game UI Screen and Running the Update Score
     private void showEndGameUIFunction() 
     {
+        Debug.Log("Show the Final UI Function Activated");
         PauseGameScript_UI.EndGameMenu_Show();
+
+        //Update the Final End Score UI
+        GameEndScoreScript.UpdateFinalEndScore();
+        
     }
 }

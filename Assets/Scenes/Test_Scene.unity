@@ -761,6 +761,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243088096}
   m_CullTransparentMesh: 0
+--- !u!111 &1304797842 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 2606684859399788299, guid: c4fd806318139a34aacdbf61d9f54c1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1661439614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1304797844 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 402327407232929408, guid: c4fd806318139a34aacdbf61d9f54c1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1661439614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1337565895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,10 +1191,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship_ROOT
       objectReference: {fileID: 0}
+    - target: {fileID: 402327407232929408, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1157994764066769389, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
@@ -1193,6 +1215,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606684859399788299, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606684859399788299, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970070008310769233, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3115553408226658424, guid: c4fd806318139a34aacdbf61d9f54c1b,
         type: 3}
@@ -1225,6 +1262,21 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[0]
       value: 
       objectReference: {fileID: 7400000, guid: 2942e1611def69b42bcabadc9145b7c5, type: 2}
+    - target: {fileID: 6369805706769230340, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494377733417825047, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: UFOAnimator
+      value: 
+      objectReference: {fileID: 1304797844}
+    - target: {fileID: 7494377733417825047, guid: c4fd806318139a34aacdbf61d9f54c1b,
+        type: 3}
+      propertyPath: UFOAnimClips
+      value: 
+      objectReference: {fileID: 1304797842}
     m_RemovedComponents:
     - {fileID: 5236068932789899038, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}
     - {fileID: 3115553408226658424, guid: c4fd806318139a34aacdbf61d9f54c1b, type: 3}

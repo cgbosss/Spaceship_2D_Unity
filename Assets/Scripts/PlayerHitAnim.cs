@@ -6,7 +6,10 @@ public class PlayerHitAnim : MonoBehaviour
 {
 
     public Animation UFOAnimClips;
+    public Animator UFOAnimator;
     private GameObject UFO_PlayerDeath;
+    bool ShowHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,4 +22,22 @@ public class PlayerHitAnim : MonoBehaviour
     {
         
     }
+    
+    //Function Show Hit for 1-2 Seconds and Set back to false
+    public void HitActive ()
+	{
+        Debug.Log("Hit Active Animation Func Started");
+        UFO_PlayerDeath.SetActive(true);
+
+        UFOAnimator = UFO_PlayerDeath.GetComponent<Animator>();
+        UFOAnimClips = UFO_PlayerDeath.GetComponent<Animation>();
+
+        //UFOAnimClips.Play();
+        UFOAnimator.Play("Base Layer.UFO_Hit", 1);
+        Debug.Log("UFO Anim Playing" + UFOAnimClips.isPlaying);
+
+        //Finish Playing Go Back to normal State
+
+	}
+
 }

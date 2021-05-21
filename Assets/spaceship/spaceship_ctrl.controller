@@ -40,7 +40,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -61,7 +61,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spaceship_UFO_anim
+  m_Name: UFOHit
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -74,38 +74,12 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 52bca1e5eaba2ce4aa7ec06dfaee548b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1aa1f0b30acaec34780e330608547b1b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &5514122562602126373
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UFO_Hit
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 0
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1aa1f0b30acaec34780e330608547b1b, type: 2}
-  m_Tag: 
-  m_SpeedParameter: New Float
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: New Float
 --- !u!1107 &6667843900579730431
 AnimatorStateMachine:
   serializedVersion: 5
@@ -119,9 +93,6 @@ AnimatorStateMachine:
     m_State: {fileID: -8449749006514318913}
     m_Position: {x: 280, y: 120, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 5514122562602126373}
-    m_Position: {x: 510, y: 210, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 2750762475632509171}
     m_Position: {x: 510, y: 50, z: 0}
   m_ChildStateMachines: []
@@ -131,6 +102,6 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 60, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 670, y: 130, z: 0}
+  m_ExitPosition: {x: 730, y: 140, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8449749006514318913}

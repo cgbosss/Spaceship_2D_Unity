@@ -14,7 +14,7 @@ public class pause_game : MonoBehaviour
     private GameManager GameManagerScript;
     
     bool showPauseMenu = false;
-
+    public float EndUIWaitTime = 3f;
     public enum GameScenes
     {
         Start,
@@ -176,9 +176,10 @@ public class pause_game : MonoBehaviour
 
         //showEndGameUIFunction();
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(EndUIWaitTime);
 
         Debug.Log("Coroutine End UI Run Next Time:" + Time.time);
         EndGameScores_UI.SetActive(true);
+
     }
 }

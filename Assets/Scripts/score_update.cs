@@ -8,9 +8,17 @@ public class score_update : MonoBehaviour
     public Text ScoreText;
     public int ScoreCount;
 
+    public int FinalScore;
+
     int AddScore = 1;
     private GameObject GameManagerObj;
     private GameManager GameManagerScript;
+
+    public GameObject EndGameScoreObj;
+    public game_endScore EndGameScoreScript;
+
+    //Get the Scritable object
+    public GamePoints GameData;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +26,7 @@ public class score_update : MonoBehaviour
         //Set the Text Count to Zero
         ScoreText.GetComponent<Text>();
         ScoreCount = 0;
-        ScoreText.text = ScoreCount.ToString();
-
-
+        ScoreText.text = ScoreCount.ToString(); 
     }
 
     // Update is called once per frame
@@ -33,15 +39,19 @@ public class score_update : MonoBehaviour
     //Update the Score by 1
     public void UpdateScore ()
 	{
-        ScoreCount = (ScoreCount + AddScore) ;
+        ScoreCount = (ScoreCount + AddScore);
         ScoreText.text = ScoreCount.ToString();
         Debug.Log("Function Update Score Called: And Score is: " + ScoreCount);
+        
+        FinalScore = ScoreCount;
+        Debug.Log("Score Update Final Score Var : " + FinalScore);
 
-    }
+        GameData.AddPoints(ScoreCount); // Use the Update Function in the Sriptable Object
+}
 
     public void SaveScore(int scoreFinal)
 	{
-        //Save the Final Score to a file
+        //Save the Final Score to the scriptable object
         //Score overides the previous score
 
 

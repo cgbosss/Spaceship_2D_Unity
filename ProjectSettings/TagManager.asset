@@ -8,6 +8,7 @@ TagManager:
   - scoreCount
   - ScreenBound
   - star
+  - hitLaserExp
   layers:
   - Default
   - TransparentFX
