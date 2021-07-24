@@ -7,34 +7,16 @@ public class game_endScore : MonoBehaviour
 {
     private GameObject ScoreCountObj;
     private score_update scoreUpdateScript;
-    public Text EndScoreText;
-    int ScoreEndVar = 0;
-    bool EndUIShow = false;
-
-    public GamePoints GameData;
-    public GamePoints_Func GamePointsScript;
+    private Text EndScoreText;
+    int ScoreEndVar;
 
     // Start is called before the first frame update
     void Start()
     {
+        EndScoreText = gameObject.GetComponent<Text>();
+
         ScoreCountObj = GameObject.Find("scoreCount");
-
-        if(ScoreCountObj != null)
-		{
-            scoreUpdateScript = ScoreCountObj.GetComponent<score_update>();
-		}
-        else
-		{
-            ScoreCountObj = null;
-            Debug.Log("Game End Score cannot Find the Final Score Object");
-		}
-
-        //Debug.Log("Updating Final End Game ScoreUpdateScript VAR:" + scoreUpdateScript.FinalScore.ToString());
-
-        //UpdateFinalEndScore();
-
-        //Set the Scriptable Object
-        
+        scoreUpdateScript = ScoreCountObj.GetComponent<score_update>();
     }
 
     // Update is called once per frame
@@ -45,23 +27,10 @@ public class game_endScore : MonoBehaviour
 
     public void UpdateFinalEndScore ()
 	{
-        //ScoreEndVar = 12;
-        //ScoreEndVar = ScoreEndVar + scoreUpdateScript.FinalScore;
-        //ScoreEndVar = scoreUpdateScript.FinalScore;
-
-        EndUIShow = true;
-        
-        Debug.Log("Updating Final End Game Score Funct");
-        GamePointsScript.GetGamePointsResults();
-        ScoreEndVar = GamePointsScript.CurrentPoints;
-
-        Debug.Log("The New Score End Points are" + ScoreEndVar);
-
-        //Search for the UI to Update
-        EndScoreText = gameObject.GetComponent<Text>();
+        ScoreEndVar = scoreUpdateScript.ScoreCount;
         EndScoreText.text = ScoreEndVar.ToString();
+        Debug.Log("Updating Score" + ScoreEndVar);
 
-        //After Display Set the Game Object Back to Zero
     }
-
+    
 }

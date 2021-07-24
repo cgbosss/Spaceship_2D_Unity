@@ -99,7 +99,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188404940395549521}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5580a7c9a63d6714aa9504993ef9fb3e, type: 2}
   m_CullingMode: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UFODamageTaken: 10
   PlayerLife_text: {fileID: 0}
-  GameUI: {fileID: 0}
+  UI_Canvas: {fileID: 0}
   LifeBar: {fileID: 0}
   PlayerExplodeObj: {fileID: 6646397971991462433, guid: ad545c0d0ce73ba43bdd9972d0bbcacb,
     type: 3}
@@ -365,7 +365,6 @@ GameObject:
   - component: {fileID: 7494377733417825047}
   - component: {fileID: 402327407232929408}
   - component: {fileID: 2970070008310769233}
-  - component: {fileID: 2606684859399788299}
   m_Layer: 0
   m_Name: UFO_PlayerDeath
   m_TagString: Player
@@ -399,8 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c062c437947f71409b7b6024e241345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UFOAnimClips: {fileID: 2606684859399788299}
-  UFOAnimator: {fileID: 402327407232929408}
+  UFOAnimClips: {fileID: 0}
 --- !u!95 &402327407232929408
 Animator:
   serializedVersion: 3
@@ -460,7 +458,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fda287897ea0b68438a850b77f1a400a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -470,21 +468,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!111 &2606684859399788299
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6369805706769230340}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 1aa1f0b30acaec34780e330608547b1b, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &6874019968638619181
 GameObject:
   m_ObjectHideFlags: 0
